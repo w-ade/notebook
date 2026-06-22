@@ -1,2 +1,12 @@
-.DS_Store
+# dependencies
 node_modules/
+
+# build
+dist/
+dist-ssr/
+
+# misc
+.DS_Store
+*.local
+*.log
+.vite/

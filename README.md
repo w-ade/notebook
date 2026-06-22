@@ -4,7 +4,28 @@ An agent that explains whatever you feed it — a GitHub repo, a concept, a skil
 
 ## Status
 
-Early design canvas. `index.html` is a single self-contained prototype of the interface — no build step, open it in a browser.
+Real app, UI-first. **Vite + React + TypeScript** (Electron shell and the agent/engine come later). The original single-file design canvas is preserved at `../brainstorming/canvas.html`.
+
+```bash
+npm install
+npm run dev      # http://localhost:5173
+npm run build    # typecheck + production build
+```
+
+## Structure
+
+```
+src/
+├── App.tsx                 window shell + view/theme state
+├── data.ts                 placeholder conversation + note (the shape the engine fills)
+├── hooks/useTheme.ts       data-theme + localStorage
+├── components/
+│   ├── TopBar.tsx          traffic lights, breadcrumb, icon buttons
+│   ├── AgentView.tsx       the conversation
+│   ├── NotebookView.tsx    Source / Breakdown / Connections
+│   └── icons.tsx
+└── styles.css              ported design system (role-named theme vars)
+```
 
 ## The shape
 
