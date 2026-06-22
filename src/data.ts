@@ -5,23 +5,7 @@ export type Msg =
   | { role: 'ai' | 'user'; text: string; mt?: boolean }
   | { kind: 'questions'; items: string[] }
 
-export const conversation: Msg[] = [
-  { role: 'ai', text: 'What do you want to understand?' },
-  {
-    role: 'user',
-    text:
-      "This repo — github.com/pmndrs/zustand. I keep seeing it but I don't actually get what it does, or why people reach for it over Redux.",
-  },
-  { role: 'ai', text: 'Got it. Two quick things so the note lands in your words:' },
-  {
-    kind: 'questions',
-    items: [
-      'Have you used Redux before, or should I explain from zero?',
-      'Do you want the why-people-pick-it angle, or just what the code does?',
-    ],
-  },
-  { role: 'user', text: 'Used Redux a little. Mostly want the why.', mt: true },
-]
+export const conversation: Msg[] = []
 
 export interface Control {
   label: string

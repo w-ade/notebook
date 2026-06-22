@@ -3,11 +3,19 @@ import { IconPanelOpen, IconPanelClose, IconGlobe, IconTheme } from './icons'
 
 interface Props {
   view: View
+  settingsOpen: boolean
   onToggleView: () => void
   onToggleTheme: () => void
+  onToggleSettings: () => void
 }
 
-export default function TopBar({ view, onToggleView, onToggleTheme }: Props) {
+export default function TopBar({
+  view,
+  settingsOpen,
+  onToggleView,
+  onToggleTheme,
+  onToggleSettings,
+}: Props) {
   const note = view === 'notebook'
   return (
     <div className="bar">
@@ -18,7 +26,13 @@ export default function TopBar({ view, onToggleView, onToggleTheme }: Props) {
       </div>
 
       <div className="crumb">
-        Notebook <span>/</span> <b>{note ? 'Zustand' : 'New'}</b>
+        Notebook
+        {note && (
+          <>
+            <span>/</span>
+            <b>Zustand</b>
+          </>
+        )}
       </div>
 
       <div className="barR">
@@ -44,7 +58,12 @@ export default function TopBar({ view, onToggleView, onToggleTheme }: Props) {
           <IconTheme />
         </button>
 
-        <div className="avatar" />
+        <button
+          className={'avatar' + (settingsOpen ? ' active' : '')}
+          onClick={onToggleSettings}
+          title={settingsOpen ? 'Close settings' : 'Settings'}
+          aria-label="Settings"
+        />
       </div>
     </div>
   )
